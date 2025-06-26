@@ -2,11 +2,12 @@
 
 -- Total revenue 
   SELECT SUM(total_price) AS Total_Revenue
-  FROM Pizza_DB.pizza_sales;
+  FROM pizza_sales;
 
 -- Average order value
   SELECT SUM(total_price)/ COUNT(DISTINCT order_id) AS Avg_order_value
-  FROM Pizza_DB.pizza_sales;
+  FROM pizza_sales;
+
 -- Total pizzas sold
   SELECT SUM(quantity) AS Total_Pizza_Sold
   FROM pizza_sales;
@@ -75,6 +76,7 @@
   GROUP BY pizza_name
   ORDER BY Total_Pizza_Sold ASC
   LIMIT 5;
+
 -- Apply for the quarter if needed
   SELECT
     DAYNAME(STR_TO_DATE(order_date, '%d/%m/%Y')) AS order_day,
